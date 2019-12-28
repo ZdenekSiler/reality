@@ -1,0 +1,54 @@
+version: 1
+disable_existing_loggers: false
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(funcName)s - %(levelname)s - %(message)s'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  error_console:
+    class: logging.StreamHandler
+    level: ERROR
+    formatter: simple
+    stream: ext://sys.stdout
+
+  info_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: simple
+    filename:  logging/tmp/spider_info.log
+    maxBytes: 10485760
+    backupCount: 20
+    encoding: utf8
+
+  info_proxy_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: simple
+    filename: logging/tmp/proxy_info.log
+    maxBytes: 10485760
+    backupCount: 20
+    encoding: utf8
+  error_proxy_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: simple
+    filename: logging/tmp/proxy_errors.log
+    maxBytes: 10485760
+    backupCount: 20
+    encoding: utf8
+loggers:
+  proxy_logger:
+    level: INFO
+    handlers: [info_proxy_file_handler, error_proxy_file_handler]
+    propogate: no
+root:
+    # Logger Level - Set to NOTSET if you have child loggers with pre-defined levels
+  level: INFO
+    # Attach handlers for Root Logger
+  handlers: [console,info_file_handler]
+    # Stop propogation from child to parent in Logging hierarchy
+  propogate: no

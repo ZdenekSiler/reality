@@ -3,10 +3,12 @@ from bs4 import BeautifulSoup
 import re
 from pymongo import MongoClient
 import datetime
+import logging
 
 
 class Proxy:
     client = MongoClient('localhost', 27017)
+    proxy_logger = logging.getLogger('proxy_logger')
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     base_url = "https://free-proxy-list.net/"
 
@@ -14,7 +16,7 @@ class Proxy:
         self.db = db
         self.collection = collection
 
-    def download_proxy(self):
+    def get_proxy_ip(self):
         page = requests.get(self.base_url)
         url_content = BeautifulSoup(page.content, 'html.parser')
         body = url_content.find_all('tbody')
@@ -41,7 +43,7 @@ class Proxy:
                             'https_flag': protocol
                         })
                     except Exception as e:
-                        print(e)
+                        self.proxy_logger.error(e)
 
         except Exception as e:
-            print(e)
+            self.proxy_logger.error(e)
