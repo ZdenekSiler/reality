@@ -1,4 +1,4 @@
-# files
+# ignore files
 /git/
 /__pycache__/
 /src/__pycache__/
