@@ -4,3 +4,7 @@
 /src/__pycache__/
 /src/proxy/__pycache__/
 /.idea/
+/src/decorator/__pycache__/
+/logging/__pycache__/
+/logging/tmp/
+/mongo/__pycache__/
