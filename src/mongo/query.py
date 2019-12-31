@@ -1,12 +1,12 @@
 from pymongo import MongoClient
+import json
 import logging
-from src.decorator.log_decorators import LogDecorator
 
 
 class Query:
-    # class attribute - the same for all queries
     client = MongoClient('localhost', 27017)
-    query_logger = logging.getLogger('query_log')
+    qry_path = 'mongo/qry_templates/'
+    logger = logging.getLogger(__name__)
 
     """
     INPUT: database_name, collection_na,e
@@ -19,11 +19,44 @@ class Query:
         self.collection = collection
 
     """
-    INPUT : Based on class initializer
+    INPUT: Based on class initializer
     OUTPUT: Drop of collection
-    DESCRIPTION: To drop MongodDB collection based on class instance
+    DESCRIPTION: To drop MongoDB collection based on class instance
     """
 
-    @LogDecorator()
     def drop_collection(self):
         self.client[self.db][self.collection].drop()
+
+    """
+    INPUT: Mongo query template in json format
+    OUTPUT: Mongo query statement to be executed
+    DESCRIPTION: Load a query template from the json object
+    """
+
+    @staticmethod
+    def load_mng_query(qry):
+        with open(qry, 'r') as j:
+            q = json.load(j)['qry_stmt']
+        return q
+
+    """
+    INPUT: No
+    OUTPUT: Proxy server ip address
+    DESCRIPTION: Get a randomized proxy server ip address 
+    """
+
+    def sample_q(self):
+        qry_template = 'sample_proxy_case.json'
+        qry = self.qry_path + qry_template
+        q = self.load_mng_query(qry)
+
+        try:
+            for query in self.client[self.db][self.collection].aggregate(q):
+
+                self.logger.info(f"Sample qry:{query}")
+                proxies = query['https_flag'] + '://' + str(query['proxy_ip'])
+
+        except Exception as e:
+            print(e)
+            self.logger.error(f"Error in Sample qry:{e}")
+        return proxies

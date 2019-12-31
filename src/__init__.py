@@ -1,4 +1,3 @@
-import datetime
 from src.proxy.proxy import Proxy
 from src.logging.logger import Log
 import logging
@@ -16,18 +15,10 @@ class Facade:
         log = Log('log')
         log.setup_logging()
 
-
     def prepare_proxy(self):
         self.proxy_query.drop_collection()
         self.proxy.get_proxy_ip()
-
-
-class Parser:
-    now = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
-
-    def __init__(self, url, name):  # , url, name, search_url):
-        self.url = url
-        self.name = name
+        self.proxy_query.sample_q()
 
 
 def main():

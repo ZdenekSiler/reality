@@ -42,6 +42,7 @@ class Proxy:
                             'proxy_type': anon_type,
                             'https_flag': protocol
                         })
+                        self.proxy_logger.info(f" Insert of proxy server {proxy_server}")
                     except Exception as e:
                         self.proxy_logger.error(e)
 
