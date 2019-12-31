@@ -1,0 +1,14 @@
+{
+    "qry_nm" : "sample_proxy",
+    "qry_stmt" : [
+                        {"$match":
+                            {
+                                "$and": [
+                                    {"proxy_type": {"$in": ["anonymous", "elite proxy"]}}
+                                ]
+                            }
+                        },
+                        {"$sample": {"size": 1}},
+                        {"$project": {"proxy_ip": 1, "_id": 0, "proxy_type": 1, "https_flag": 1}}
+                    ]
+}
