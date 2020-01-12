@@ -2,6 +2,8 @@ from src.proxy.proxy import Proxy
 from src.logging.logger import Log
 import logging
 from src.mongo.query import Query
+from src.scraper.parser import Parser
+from src.scraper.sreality.sreality import EstateJob
 
 
 class Facade:
@@ -9,23 +11,28 @@ class Facade:
     def __init__(self):
         self.proxy = Proxy('proxy', 'proxies')
         self.proxy_query = Query('proxy', 'proxies')
-
-    @staticmethod
-    def setup_logging():
-        log = Log('log')
-        log.setup_logging()
+        self.parser = Parser()
+        self.estate = EstateJob()
 
     def prepare_proxy(self):
         self.proxy_query.drop_collection()
         self.proxy.get_proxy_ip()
-        self.proxy_query.sample_q()
+
+    def estate(self):
+        self.estate.scrape_url_list()
+
+
+def setup_logging():
+    log = Log('log')
+    log.setup_logging()
 
 
 def main():
     facade = Facade()
-    facade.setup_logging()
+    setup_logging()
     logger.info('Start')
     facade.prepare_proxy()
+    facade.estate.scrape_url_list()
     logger.info('Finish')
 
 

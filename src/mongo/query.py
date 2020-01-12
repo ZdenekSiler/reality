@@ -1,11 +1,12 @@
 from pymongo import MongoClient
 import json
 import logging
+import os
 
 
 class Query:
     client = MongoClient('localhost', 27017)
-    qry_path = 'mongo/qry_templates/'
+    qry_path = os.path.dirname(os.path.abspath(__file__)) + '/qry_templates/'
     logger = logging.getLogger(__name__)
 
     """
