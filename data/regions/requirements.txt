@@ -1,0 +1,100 @@
+Středočeský
+Benešov
+Beroun
+Kladno
+Kolín
+Kutná Hora
+Mělník
+Mladá Boleslav
+Nymburk
+Praha-východ
+Praha-západ
+Příbram
+Rakovník
+Praha
+Praha 1
+Praha 2
+Praha 3
+Praha 4
+Praha 5
+Praha 6
+Praha 7
+Praha 8
+Praha 9
+Praha 10
+Karlovarský
+Cheb
+Karlovy Vary
+Sokolov
+Plzeňský
+Domažlice
+Klatovy
+Plzeň-jih
+Plzeň-město
+Plzeň-sever
+Rokycany
+Tachov
+Jihočeský
+České Budějovice
+Český Krumlov
+Jindřichův Hradec
+Písek
+Prachatice
+Strakonice
+Tábor
+Vysočina
+Havlíčkův Brod
+Jihlava
+Pelhřimov
+Třebíč
+Žďár nad Sázavou
+Jihomoravský
+Blansko
+Břeclav
+Brno-město
+Brno-venkov
+Hodonín
+Vyškov
+Znojmo
+Zlínský
+Kroměříž
+Uherské Hradiště
+Vsetín
+Zlín
+Moravskoslezský
+Bruntál
+Frýdek-Místek
+Karviná
+Nový Jičín
+Opava
+Ostrava-město
+Olomoucký
+Jeseník
+Olomouc
+Přerov
+Prostějov
+Šumperk
+Pardubický
+Chrudim
+Pardubice
+Svitavy
+Ústí nad Orlicí
+Královéhradecký
+Hradec Králové
+Jičín
+Náchod
+Rychnov nad Kněžnou
+Trutnov
+Liberecký
+Česká Lípa
+Jablonec nad Nisou
+Liberec
+Semily
+Ústecký
+Chomutov
+Děčín
+Litoměřice
+Louny
+Most
+Teplice
+Ústí nad Labem

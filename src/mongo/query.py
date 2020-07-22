@@ -27,6 +27,7 @@ class Query:
 
     def drop_collection(self):
         self.client[self.db][self.collection].drop()
+        self.logger.info(f'Deleting: {self.db}.{self.collection}')
 
     """
     INPUT: Mongo query template in json format
@@ -46,18 +47,32 @@ class Query:
     DESCRIPTION: Get a randomized proxy server ip address 
     """
 
+    @property
     def sample_q(self):
         qry_template = 'sample_proxy_case.json'
         qry = self.qry_path + qry_template
         q = self.load_mng_query(qry)
-
+        proxies = {}
         try:
             for query in self.client[self.db][self.collection].aggregate(q):
-
                 self.logger.info(f"Sample qry:{query}")
                 proxies = query['https_flag'] + '://' + str(query['proxy_ip'])
 
         except Exception as e:
-            print(e)
             self.logger.error(f"Error in Sample qry:{e}")
         return proxies
+
+    """
+    INPUT: Column name
+    OUTPUT: Proxy server ip address
+    DESCRIPTION: Projection in MongoDB (SELECT column_name from db.collection) 
+    """
+
+    def get_selected_col(self, col):
+        ret_val = []
+        try:
+            for query in self.client[self.db][self.collection].aggregate([{'$project': {col: 1, '_id': 0}}]):
+                ret_val.append(query[col])
+        except Exception as e:
+            self.logger.error(e)
+        return ret_val

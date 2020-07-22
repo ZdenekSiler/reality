@@ -1,0 +1,17 @@
+{
+    "region": {
+        "praha": ["praha-1", "praha-2", "praha-3", "praha-4", "praha-5", "praha-6", "praha-7", "praha-8", "praha-9","praha-10"],
+        "stredocesky": ["benesov", "beroun", "kladno", "kolin", "kutnahora", "melnik", "mladaboleslav", "nymburk", "praha-vychod", "praha-zapad", "pribram", "rakovnik"],
+        "karlovarsky": ["cheb", "karlovyvary", "sokolov"],
+        "plzensky": ["domazlice", "klatovy", "plzen-jih", "plzen-mesto", "plzen-sever", "rokycany", "tachov"],
+        "jihocesky": ["ceskebudejovice", "ceskykrumlov", "jindrichuvhradec", "pisek", "prachatice", "strakonice", "tabor"],
+        "vysocina": ["havlickuvbrod", "jihlava", "pelhrimov", "trebic", "zdarnadsazavou"],
+        "jihomoravsky": ["blansko", "breclav", "brno-mesto", "brno-venkov", "hodonin", "vyskov", "znojmo"],
+        "zlinsky": ["kromeriz", "uherskehradiste", "vsetin", "zlin"],
+        "moravskoslezsky": ["bruntal", "frydek-mistek", "karvina", "novyjicin", "opava", "ostrava-mesto"],
+        "olomoucky": ["jesenik", "olomouc", "prerov", "prostejov", "sumperk", "pardubicky", "chrudim", "pardubice", "svitavy", "ustinadorlici"],
+        "kralovehradecky": ["hradeckralove", "jicin", "nachod", "rychnovnadkneznou", "trutnov"],
+        "liberecky": ["ceskalipa", "jablonecnadnisou", "liberec", "semily"],
+        "ustecky": ["chomutov", "decin", "litomerice", "louny", "most", "teplice", "ustinadlabem"]
+    }
+}

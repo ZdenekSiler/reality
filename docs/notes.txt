@@ -1,0 +1,7 @@
+https://stackoverflow.com/questions/55939724/sreality-cz-web-scrapping
+css=".name.ng-binding"
+css=".locality.ng-binding"
+css=".norm-price.ng-binding"
+
+
+https://www.swtestacademy.com/xpath-selenium/
